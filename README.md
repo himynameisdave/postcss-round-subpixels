@@ -1,4 +1,4 @@
-# PostCSS Round Subpixels [![Build Status][ci-img]][ci]
+## postcss-round-subpixels
 
 [PostCSS](https://github.com/postcss/postcss) plugin that rounds sub-pixel (eg: `10.25px`) values to the nearest full pixel.
 

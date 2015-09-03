@@ -1,4 +1,4 @@
-## postcss-round-subpixels
+## postcss-round-subpixels [![npm version](https://badge.fury.io/js/postcss-round-subpixels.svg)](http://badge.fury.io/js/postcss-round-subpixels)
 
 [PostCSS](https://github.com/postcss/postcss) plugin that rounds sub-pixel (eg: `10.25px`) values to the nearest full pixel.
 

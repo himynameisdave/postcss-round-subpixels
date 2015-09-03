@@ -1,6 +1,6 @@
 {
   "name": "postcss-round-subpixels",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "PostCSS plugin that rounds sub-pixel values to the nearest full pixel.",
   "keywords": [
     "postcss",
@@ -11,7 +11,7 @@
     "support",
     "compatability"
   ],
-  "author": "dlunny <dlunny@featurecreeptechnology.com>",
+  "author": "Dave Lunny",
   "license": "MIT",
   "repository": "himynameisdave/postcss-round-subpixels",
   "bugs": {
@@ -22,7 +22,6 @@
     "postcss": "^5.0.2"
   },
   "devDependencies": {
-    "gulp": "^3.9.0",
     "tape": "^4.2.0"
   },
   "scripts": {

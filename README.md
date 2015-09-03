@@ -8,23 +8,44 @@ Useful because some browsers do not render sub-pixel values, and it's not consis
 
 Also useful for general cleanup/consistency in your stylesheets.
 
-
 ### Sample
 
-...coming soon!
-<!--
+
 ```css
-.foo {
-    /* Input example */
+.down {
+  height: 123.456px;
+  width:  321.123px;
+}
+.up {
+  height: 987.654px;
+  width:  1234.567px;
+}
+.dont-touch {
+  height: 12.345rem;
+  width:  98.7654%;
 }
 ```
 
 ```css
-.foo {
-  /* Output example */
+.down {
+  height: 123px;
+  width:  321px;
+}
+.up {
+  height: 988px;
+  width:  1235px;
+}
+.dont-touch {
+  height: 12.345rem;
+  width:  98.7654%;
 }
 ```
--->
+
+### Install
+
+```
+npm i --save-dev postcss-round-subpixels
+```
 
 ### Usage
 

@@ -1,0 +1,12 @@
+.down {
+  height: 123px;
+  width:  321px;
+}
+.up {
+  height: 988px;
+  width:  1235px;
+}
+.dont-touch {
+  height: 12.345rem;
+  width:  98.7654%;
+}

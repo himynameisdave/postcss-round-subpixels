@@ -9,13 +9,10 @@ var fs       = require('fs'),
     //  thanks to this test written for the postcss-rebeccapurple plugin:
     //  https://github.com/postcss/postcss-color-rebeccapurple/blob/master/test/index.js
     compareFixtures = function( t, name, msg, opts, postcssOpts ){
-
       postcssOpts = postcssOpts || {}
       postcssOpts.from = filename("fixtures/" + name)
       opts = opts || {}
       var actual = postcss().use(plugin(opts)).process(read(postcssOpts.from), postcssOpts).css
-
-
 
       var expected = read(filename("fixtures/" + name + ".expected"))
       fs.writeFile(filename("fixtures/" + name + ".actual"), actual)
@@ -25,5 +22,10 @@ var fs       = require('fs'),
 
     test( "basic", function(t){
       compareFixtures(t, "round-subpixels", "should round the sub-pixel values");
+      t.end();
+    });
+
+    test( "multi", function(t){
+      compareFixtures(t, "round-multi-subpixels", "should round the sub-pixel values if there are more than one per declaration.");
       t.end();
     });

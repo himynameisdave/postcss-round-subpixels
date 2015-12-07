@@ -10,11 +10,12 @@ module.exports = postcss.plugin('postcss-round-subpixels', function (opts) {
           if( node.type !== 'word' ){
             return;
           }
+          var value = parser.unit(node.value);
           //  any number of Numbers, a decimal, then 'px'
-          if(node.value.match(/\d*?\.\d*?px/g) ){
+          if( value && value.unit === 'px' ){
             // those maths make it into a rounded Number,
             // then we make it a string again by adding 'px'
-            node.value = Math.round(parseFloat(node.value)) + "px";
+            node.value = Math.round(Number(value.number)) + 'px';
           }
         }).toString();
 

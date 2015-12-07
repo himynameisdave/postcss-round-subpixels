@@ -27,5 +27,8 @@
   },
   "scripts": {
     "test": "tape test"
-  }
+  },
+  "files": [
+    "index.js"
+  ]
 }

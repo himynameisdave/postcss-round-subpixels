@@ -1,0 +1,4 @@
+.multi-pixels {
+  padding: fn1(20.25px);
+  margin: fn2(12.75px);
+}

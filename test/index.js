@@ -29,3 +29,8 @@ var fs       = require('fs'),
       compareFixtures(t, "round-multi-subpixels", "should round the sub-pixel values if there are more than one per declaration.");
       t.end();
     });
+
+    test( "multi", function(t){
+      compareFixtures(t, "round-subpixels-in-function", "should round the sub-pixel values inside functions.");
+      t.end();
+    });

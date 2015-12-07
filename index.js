@@ -7,8 +7,8 @@ module.exports = postcss.plugin('postcss-round-subpixels', function (opts) {
         //  use the parser to walk through each individual value in the decl
         decl.value = parser(decl.value).walk( function( node ){
           //  we can totally skip things that aren't a pixel or "word" value
-          if( node.type === 'space' || node.type === 'function' || node.type === 'div' ){
-            return false;
+          if( node.type !== 'word' ){
+            return;
           }
           //  any number of Numbers, a decimal, then 'px'
           if(node.value.match(/\d*?\.\d*?px/g) ){

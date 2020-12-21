@@ -7,12 +7,14 @@
     "index.js"
   ],
   "scripts": {
-    "test": "tape test"
+    "test": "tape test",
+    "release": "np --no-yarn"
   },
   "dependencies": {
     "postcss-value-parser": "^3.1.2"
   },
   "devDependencies": {
+    "np": "^7.0.0",
     "postcss": "^8.2.1",
     "tape": "^4.2.0"
   },

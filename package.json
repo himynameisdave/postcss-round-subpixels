@@ -1,6 +1,6 @@
 {
   "name": "postcss-round-subpixels",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "PostCSS plugin that rounds sub-pixel values to the nearest full pixel.",
   "main": "index.js",
   "files": [

@@ -1,24 +1,43 @@
-var postcss = require('postcss'),
-    parser = require('postcss-value-parser');
+const parser = require('postcss-value-parser');
 
-module.exports = postcss.plugin('postcss-round-subpixels', function () {
-  return function (css) {
-    css.walkDecls(function (decl){
-      //  use the parser to walk through each individual value in the decl
-      decl.value = parser(decl.value).walk(function ( node ){
-        //  we can totally skip things that aren't a pixel or "word" value
-        if( node.type !== 'word' ){
-          return;
-        }
-        var value = parser.unit(node.value);
-        //  any number of Numbers, a decimal, then 'px'
-        if( value && value.unit === 'px' ){
-          // those maths make it into a rounded Number,
-          // then we make it a string again by adding 'px'
-          node.value = Math.round(Number(value.number)) + 'px';
-        }
-      }).toString();
+//  Check if a given node is a word or not.
+function isNodeWord(node) {
+  return node.type === 'word';
+}
 
-    });
-  };
+//  Check if given is a pixel value.
+function isPixelValue(value) {
+  return value && value.unit === 'px';
+}
+
+//  Convert the subpixel value to a number and round it.
+function roundSubPixelValue(value) {
+  return Math.round(
+    Number(value.number),
+  );
+}
+
+/**
+ * PostCSS Plugin for rounding sub-pixel values.
+ */
+const postcssRoundSubpixels = (opts = {}) => ({
+  postcssPlugin: 'postcss-round-subpixels',
+  Declaration: (decl) => {
+    //  Use the parser to walk through each value in the declaration.
+    decl.value = parser(decl.value).walk(node => {
+      //  Ignore non-word decls.
+      if (!isNodeWord(node)) {
+        return;
+      }
+      const value = parser.unit(node.value);
+      //  Check if the value is `px`, and if so round the number.
+      if (isPixelValue(value)) {
+        node.value = `${roundSubPixelValue(value)}px`;
+      }
+    }).toString();
+  },
 });
+
+module.exports = postcssRoundSubpixels;
+
+module.exports.postcss = true

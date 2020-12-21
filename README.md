@@ -4,12 +4,13 @@
 
 ### Why?
 
-If you use maths in your preprocessor, sometimes the output CSS is custy like `12.87378378364px`. This is an issue because browsers are [very inconsistent](http://cruft.io/posts/percentage-calculations-in-ie/) in how they deal with sub-pixel values. Some round up, some round down, some round sideways - who even knows.
+If you use maths in your preprocessor, sometimes the output CSS is ugly like `12.87378378364px`. This is an issue because browsers are [very inconsistent](http://cruft.io/posts/percentage-calculations-in-ie/) in how they deal with sub-pixel values. Some round up, some round down, some round sideways - who even knows.
 
-Also useful for general cleanup/consistency in your stylesheets, because `12.87378378364px` is not cute.
+Also useful for general cleanup/consistency in your stylesheets, because `12.87378378364px` is not cute, and those extra bytes aren't really going to matter in how browsers render your styles.
+
+Ignores all non-pixel values such as percent.
 
 ### Sample
-
 
 ```css
 .down {
@@ -44,13 +45,15 @@ Also useful for general cleanup/consistency in your stylesheets, because `12.873
 ### Install
 
 ```
-npm i --save-dev postcss-round-subpixels
+npm i --save-dev postcss postcss-round-subpixels
 ```
 
 ### Usage
 
 ```js
-postcss([ require('postcss-round-subpixels') ])
+postcss([
+  require('postcss-round-subpixels')
+])
 ```
 
 See [PostCSS](https://github.com/postcss/postcss) docs for examples for your environment.
